@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>array operation</title>
+</head>
+<body>
+    <p class="des">数组求交集</p>
+    <script>
+        var arrOne = [2,3,1,6];
+        var arrTwo = [4,2,1,5,3];
+        var temp = [];
+        for(var i=0;i<arrOne.concat(arrTwo).length;i++){
+            if(arrOne.indexOf(arrTwo[i]) != -1){
+                temp.push(arrTwo[i]);
+            }
+        }
+        console.log(temp.sort());
+
+        /*第二种方式*/
+        var temp2 = [],
+            i=0,
+            j=0;
+        arrOne.sort();
+        arrTwo.sort();
+        while(i < arrOne.length && j < arrTwo.length ){
+            if(arrOne[i]<arrTwo[j]){
+                i++;
+            }else if(arrOne[i]>arrTwo[j]){
+                j++;
+            }else{
+                temp2.push(arrOne[i]);
+                i++;
+                j++;
+            }
+        }
+        console.log(temp2);
+    </script>
+</body>
+</html>
